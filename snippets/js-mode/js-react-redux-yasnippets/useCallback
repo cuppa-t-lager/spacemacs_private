@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: useCallback
+# key: useCallback
+# uuid: useCallback
+# group: react-redux
+# --
+useCallback(
+ () => {
+  ${callback}
+ },
+ [${input}],
+)`(js-react-redux-yasnippets-semicolon)`

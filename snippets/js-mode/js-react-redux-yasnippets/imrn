@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: imrn
+# key: imrn
+# uuid: imrn
+# group: react-redux
+# --
+import { ${moduleName} } from 'react-native'`(if (eolp) (js-react-redux-yasnippets-semicolon))`

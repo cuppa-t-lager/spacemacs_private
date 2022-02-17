@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: imrd
+# key: imrd
+# uuid: imrd
+# group: react-redux
+# --
+import ReactDOM from 'react-dom'`(if (eolp) (js-react-redux-yasnippets-semicolon))`

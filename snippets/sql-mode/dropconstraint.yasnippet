@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: Drop constraint on table
+# key: sqldc
+# --
+--------------------------------------------------------------------------------------------
+------- Drop Constraint to ${1:Foreign key tablde} pointing to ${2:Primary key table} ------
+--------------------------------------------------------------------------------------------
+-- C  = CHECK constraint
+-- D  = DEFAULT (constraint or stand-alone)
+-- F  = FOREIGN KEY constraint
+-- PK = PRIMARY KEY constraint
+-- UQ = UNIQUE constraint
+IF (OBJECT_ID('dbo.FK_$1_$2', 'F') IS NOT NULL)
+BEGIN
+ ALTER TABLE tbl_rendition_profile DROP CONSTRAINT FK_$1_$2
+END
+GO
+
+$0

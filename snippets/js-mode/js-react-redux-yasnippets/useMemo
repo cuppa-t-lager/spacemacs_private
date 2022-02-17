@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: useMemo
+# key: useMemo
+# uuid: useMemo
+# group: react-redux
+# --
+useMemo(() => ${function}, ${input})`(if (eolp) (js-react-redux-yasnippets-semicolon))`

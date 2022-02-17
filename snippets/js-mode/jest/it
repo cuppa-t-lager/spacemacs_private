@@ -1,0 +1,9 @@
+# name : it('...', () => { ... })
+# contributor : Seong Yong-ju <sei40kr@gmail.com>
+# key: jest
+# group: jest
+# --
+
+it('${1:...}', () => {
+  $0
+});

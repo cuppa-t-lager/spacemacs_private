@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Displays a message in the console
+# key: clg
+# uuid: clg
+# group: react-redux
+# --
+console.log($0)`(if (eolp) (js-react-redux-yasnippets-semicolon))`

@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Number prop type
+# key: ptn
+# uuid: ptn
+# group: react-redux
+# --
+PropTypes.number,$0

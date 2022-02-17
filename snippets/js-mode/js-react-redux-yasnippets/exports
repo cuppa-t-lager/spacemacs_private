@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: module.exports = ...
+# key: exports
+# uuid: exports
+# group: react-redux
+# --
+module.exports = $1`(if (eolp) (js-react-redux-yasnippets-semicolon))`

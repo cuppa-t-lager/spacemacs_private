@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Func prop type required
+# key: ptfr
+# uuid: ptfr
+# group: react-redux
+# --
+PropTypes.func.isRequired,$0

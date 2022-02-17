@@ -1,0 +1,9 @@
+# name : describe('...', () => { ... })
+# contributor : Seong Yong-ju <sei40kr@gmail.com>
+# key: jest
+# group: jest
+# --
+
+describe('${1:...}', () => {
+  $0
+});

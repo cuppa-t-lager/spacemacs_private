@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: useState
+# key: useState
+# uuid: useState
+# group: react-redux
+# --
+const [${1:state}, set${1:$(js-react-redux-yasnippets-capitalize-first-char yas-text)}] = useState(${2:initialState})`(if (eolp) (js-react-redux-yasnippets-semicolon))`

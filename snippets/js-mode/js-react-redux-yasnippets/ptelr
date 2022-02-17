@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: React element prop type required
+# key: ptelr
+# uuid: ptelr
+# group: react-redux
+# --
+PropTypes.element.isRequired,$0

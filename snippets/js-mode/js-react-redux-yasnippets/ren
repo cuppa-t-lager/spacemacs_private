@@ -1,0 +1,13 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Basic render
+# key: ren
+# uuid: ren
+# group: react-redux
+# --
+render() {
+ return (
+  <div>
+   $0
+  </div>
+ )`(js-react-redux-yasnippets-semicolon)`
+}

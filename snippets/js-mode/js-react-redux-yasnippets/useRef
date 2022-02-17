@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: useRef
+# key: useRef
+# uuid: useRef
+# group: react-redux
+# --
+const ${ref} = useRef(${initialValue})`(if (eolp) (js-react-redux-yasnippets-semicolon))`

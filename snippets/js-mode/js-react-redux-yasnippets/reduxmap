@@ -1,0 +1,13 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: reduxmap
+# key: reduxmap
+# uuid: reduxmap
+# group: react-redux
+# --
+const mapStateToProps = (state) => ({
+ $0
+})`(js-react-redux-yasnippets-semicolon)`
+
+const mapDispatchToProps = {
+
+}`(js-react-redux-yasnippets-semicolon)`

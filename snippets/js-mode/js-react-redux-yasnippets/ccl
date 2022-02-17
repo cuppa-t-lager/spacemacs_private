@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Clears the console
+# key: ccl
+# uuid: ccl
+# group: react-redux
+# --
+console.clear()`(if (eolp) (js-react-redux-yasnippets-semicolon))`

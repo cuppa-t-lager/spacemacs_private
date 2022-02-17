@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ptypes
+# key: ptypes
+# uuid: ptypes
+# group: react-redux
+# --
+static propTypes = {
+ $0
+}

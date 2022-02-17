@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: arr.filter(...)
+# key: .filter
+# group: array
+# --
+`(unless (eq (char-before) ?.) ".")`filter($0)`(if (eolp) ";")`

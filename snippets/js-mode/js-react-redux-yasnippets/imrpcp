@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: imrpcp
+# key: imrpcp
+# uuid: imrpcp
+# group: react-redux
+# --
+import React, { PureComponent } from 'react'`(js-react-redux-yasnippets-semicolon)`
+import PropTypes from 'prop-types'`(js-react-redux-yasnippets-semicolon)`

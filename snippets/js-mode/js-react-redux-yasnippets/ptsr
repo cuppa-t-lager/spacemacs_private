@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: String prop type required
+# key: ptsr
+# uuid: ptsr
+# group: react-redux
+# --
+PropTypes.string.isRequired,$0

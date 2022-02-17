@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Creates and assigns a local variable using state destructing
+# key: cs
+# uuid: cs
+# group: react-redux
+# --
+const { $1 } = this.state`(if (eolp) (js-react-redux-yasnippets-semicolon))`

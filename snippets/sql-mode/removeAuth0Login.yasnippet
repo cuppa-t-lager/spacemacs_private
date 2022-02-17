@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Remove Auth0 Login
+# --
+UPDATE tbl_application_config
+Set config_value = 'false'
+WHERE application_config_default_id = 331

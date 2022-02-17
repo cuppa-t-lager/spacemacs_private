@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Groups and indents all following output by an additional level, until console.groupEnd() is called
+# key: cgr
+# uuid: cgr
+# group: react-redux
+# --
+console.group('${label}')`(if (eolp) (js-react-redux-yasnippets-semicolon))`

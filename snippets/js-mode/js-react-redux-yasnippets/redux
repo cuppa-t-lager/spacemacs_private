@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: redux
+# key: redux
+# uuid: redux
+# group: react-redux
+# --
+import { connect } from 'react-redux'`(if (eolp) (js-react-redux-yasnippets-semicolon))`

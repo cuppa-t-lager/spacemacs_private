@@ -1,0 +1,9 @@
+# name : expect.objectContaining({ ... })
+# contributor : Seong Yong-ju <sei40kr@gmail.com>
+# key: jest
+# group: jest
+# --
+
+expect.objectContaining({
+  $0
+})

@@ -1,0 +1,9 @@
+# name : afterAll(() => { ... })
+# contributor : Seong Yong-ju <sei40kr@gmail.com>
+# key: jest
+# group: jest
+# --
+
+afterAll(() => {
+  $0
+});

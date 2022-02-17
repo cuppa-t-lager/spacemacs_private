@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: server.json
+# group: concrete
+# key: sjson
+# --
+{
+    "name":"CP2",
+    "app":{
+        "cfengine":"Lucee@5.2.4+37"
+    },
+    "web":{
+        "webroot":"CP2/",
+        "ssl":{
+            "enable":true,
+            "port":"8443"
+        },
+		"JVM": {
+			"heapSize":4096,
+			"minHeapSize":4096
+		},
+        "http":{
+            "enable":true,
+            "port":"8080"
+        }
+    }
+}

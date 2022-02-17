@@ -1,0 +1,32 @@
+# -*- mode: snippet -*-
+# name: buildAndRunDevelopment.sh
+# group: concrete
+# key: brd
+# --
+#!/usr/bin/env bash
+container_name="cp3-localdev-\${RANDOM}"
+
+echo "Renaming \\"box.json\\"..."
+BOXJSON_TEMP="box.json.\${RANDOM}"
+SERVERJSON_TEMP="server.json.\${RANDOM}"
+mv box.json "\${BOXJSON_TEMP}"
+echo "Taking a copy of \\\"server.json\\"..."
+cp server.json "\${SERVERJSON_TEMP}"
+
+echo "Starting local dev container (\${container_name})..."
+docker run --rm -it --name \${container_name} \
+       -p 80:8080 \
+       -p 443:1443 \
+       -p 8088:8088 \
+       -v "\${PWD}:/app" \
+	   -v "\${PWD}/../qpscanner:/app/CP2/qpscanner-rc0.8" \
+       -v "\${PWD}/../password-lgk:/usr/share/tomcat7/certs" \
+       --add-host="localhost:192.168.65.1" \
+       concreteplatform/cp3
+
+echo ""
+echo "Returning \\"box.json\\" to original state..."
+mv \${BOXJSON_TEMP} box.json
+echo "Returning \\"server.json\\" to original state..."
+mv \${SERVERJSON_TEMP} server.json
+echo "Done."

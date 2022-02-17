@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Anything that can be rendered: numbers, strings, elements or an array
+# key: ptnd
+# uuid: ptnd
+# group: react-redux
+# --
+PropTypes.node,$0

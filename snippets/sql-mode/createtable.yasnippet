@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: Create table
+# key: sqlct
+# --
+--------------------------------------------------------------------------------------------
+------------------------ Create table  [dbo].[tbl_${1:table_name}] -------------------------
+--------------------------------------------------------------------------------------------
+IF NOT EXISTS
+   (  SELECT [name]
+      FROM sys.tables
+      WHERE [name] = 'tbl_$1'
+   )
+CREATE TABLE [dbo].[tbl_$1] (
+	$1_id [int] IDENTITY(1,1) NOT NULL
+)
+
+$0

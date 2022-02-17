@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: imd
+# key: imd
+# uuid: imd
+# group: react-redux
+# --
+import { $2 } from '${1:module}'`(if (eolp) (js-react-redux-yasnippets-semicolon))`

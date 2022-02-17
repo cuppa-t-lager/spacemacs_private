@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Prints a JavaScript representation of the specified object
+# key: cdi
+# uuid: cdi
+# group: react-redux
+# --
+console.dir(${object})`(if (eolp) (js-react-redux-yasnippets-semicolon))`

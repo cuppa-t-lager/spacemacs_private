@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Closes out the corresponding console.group()
+# key: cge
+# uuid: cge
+# group: react-redux
+# --
+console.groupEnd()`(if (eolp) (js-react-redux-yasnippets-semicolon))`

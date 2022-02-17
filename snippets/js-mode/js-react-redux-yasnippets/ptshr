@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: An object taking on a particular shape required
+# key: ptshr
+# uuid: ptshr
+# group: react-redux
+# --
+PropTypes.shape({
+ $0
+}).isRequired,

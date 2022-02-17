@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Testing `it` block
+# key: tit
+# uuid: tit
+# group: react-redux
+# --
+it('should $1', () => {
+ $0
+})`(js-react-redux-yasnippets-semicolon)`

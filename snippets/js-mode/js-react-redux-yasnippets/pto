@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Object prop type
+# key: pto
+# uuid: pto
+# group: react-redux
+# --
+PropTypes.object,$0

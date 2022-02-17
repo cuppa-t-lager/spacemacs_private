@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Console time wrapper
+# key: ctm
+# uuid: ctm
+# group: react-redux
+# --
+console.time('$1')`(if (eolp) (js-react-redux-yasnippets-semicolon))`

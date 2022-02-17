@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Displays a message in the console and also includes a stack trace from where the method was called
+# key: cer
+# uuid: cer
+# group: react-redux
+# --
+console.error(${object})`(if (eolp) (js-react-redux-yasnippets-semicolon))`

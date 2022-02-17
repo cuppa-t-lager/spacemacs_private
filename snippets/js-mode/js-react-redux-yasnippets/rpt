@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Creates empty propTypes declaration
+# key: rpt
+# uuid: rpt
+# group: react-redux
+# --
+${`(js-react-redux-yasnippets-filename-base)`}.propTypes = {
+ $0
+}`(js-react-redux-yasnippets-semicolon)`

@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: React element prop type
+# key: ptel
+# uuid: ptel
+# group: react-redux
+# --
+PropTypes.element,$0

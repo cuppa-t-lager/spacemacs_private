@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: Drop index  on table
+# key: sqldi
+# --
+--------------------------------------------------------------------------------------------
+------------------ Drop Index in ${1:Table name}  named ${2:Index name}} -------------------
+--------------------------------------------------------------------------------------------
+IF (EXISTS
+	(
+		SELECT *
+		FROM sys.indexes
+		WHERE name='$2'
+		AND object_id = OBJECT_ID('dbo.$1')
+	)
+)
+BEGIN
+	DROP INDEX $2 ON $1
+END
+
+GO
+
+$0

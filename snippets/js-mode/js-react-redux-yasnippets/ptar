@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Array prop type required
+# key: ptar
+# uuid: ptar
+# group: react-redux
+# --
+PropTypes.array.isRequired,$0

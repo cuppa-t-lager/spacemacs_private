@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: Create index on table
+# key: sqlci
+# --
+--------------------------------------------------------------------------------------------
+--------------------------- create index on table $1 column $2 -----------------------------
+--------------------------------------------------------------------------------------------
+IF EXISTS
+(SELECT * FROM sys.indexes WHERE object_id = object_id('dbo.$1') AND NAME ='IX_$1_$2')
+BEGIN
+DROP INDEX IX_$1_$2 ON [dbo].[$1]
+END;
+GO
+
+CREATE NONCLUSTERED INDEX IX_$1_$2 ON $1 ($2);
+GO
+
+$0

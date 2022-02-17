@@ -1,0 +1,29 @@
+# -*- mode: snippet -*-
+# name: functional component
+# key: rfc
+# group: react.jn
+# --
+import React from 'react'
+import PropTypes from 'prop-types'
+import t from 'translate'
+
+/* Set thge sate */
+const [${6:var}, set{$6:$$(string-inflection-camelcase)}] = useState(${7:Initial state})
+
+const $1 = ({...otherProps }) => {
+
+  return (
+    <div>$1 Component</div>
+  )
+
+}
+
+$1.propTypes = {
+  ${2:Name}: PropTypes.${3:$$(yas-choose-value '("array" "bool" "func"  "numb"  "object" "string" "symbol" "arrayOf()" "objectOf()"))},
+}
+
+$1.defaultProps = {
+  $2: ${5:$$(yas-choose-value '("''" "true" "false" "[]" "{}"))},
+}
+
+export default  $1

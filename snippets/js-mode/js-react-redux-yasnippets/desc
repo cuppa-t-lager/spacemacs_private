@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Testing `describe` block
+# key: desc
+# uuid: desc
+# group: react-redux
+# --
+describe('$1', () => {
+ $0
+})`(js-react-redux-yasnippets-semicolon)`

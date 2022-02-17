@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: graphql
+# key: graphql
+# uuid: graphql
+# group: react-redux
+# --
+import { compose, graphql } from 'react-apollo'`(if (eolp) (js-react-redux-yasnippets-semicolon))`

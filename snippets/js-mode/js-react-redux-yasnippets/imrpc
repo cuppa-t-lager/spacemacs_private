@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: imrpc
+# key: imrpc
+# uuid: imrpc
+# group: react-redux
+# --
+import React, { PureComponent } from 'react'`(if (eolp) (js-react-redux-yasnippets-semicolon))`

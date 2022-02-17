@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Creates a named function in ES7 syntax
+# key: nfn
+# uuid: nfn
+# group: react-redux
+# --
+const ${name} = (${params}) => {
+ $0
+}

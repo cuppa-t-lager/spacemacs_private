@@ -1,0 +1,272 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; my-configurations                                                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-configuration ()
+  (interactive)
+  (evil-leader/set-key "/" 'spacemacs/helm-project-do-ag)
+  (setq evil-emacs-state-cursor '(box "yellow"))
+  (set-face-attribute 'default nil :family "Hack")
+  (set-face-attribute 'default nil :height 145)
+  (set-face-foreground 'linum "LightBlue3")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; magit                                                                  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-magit-configuration ()
+  (interactive)
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
+  (my-magit-remove-rebase-section)
+  (define-key magit-file-section-map (kbd "RET") 'magit-diff-visit-file-other-window)
+  (define-key magit-hunk-section-map (kbd "RET") 'magit-diff-visit-file-other-window)
+
+
+  (setq magit-set-upstream-on-push t
+        magit-ediff-dwim-show-on-hunks t
+        magit-diff-hide-trailing-cr-characters t
+        magit-status-buffer-switch-function 'switch-to-buffer
+        magit-ediff-dwim-show-on-hunks t
+        magit-diff-hide-trailing-cr-characters t
+        magit-diff-visit-file-other-window t
+        magit-commit-show-diff nil
+        magit-revert-buffers 1
+        magit-auto-revert-mode t
+        ;;global-diff-hl-mode t
+        )
+  ;;(add-hook 'after-save-hook 'magit-after-save-refresh-status)
+  ;;(setq magit-ediff-dwim-show-on-hunks t)
+  ;;(setq magit-diff-hide-trailing-cr-characters t)
+  ;;(setq magit-status-buffer-switch-function 'switch-to-buffer)
+  ;;(setq magit-ediff-dwim-show-on-hunks t)
+  ;;(setq magit-diff-hide-trailing-cr-characters t)
+  ;;(add-hook 'after-save-hook 'magit-after-save-refresh-status t)
+  ;;(add-hook 'after-init-hook #'magit-after-save-refresh-status t)
+
+  ;;(define-key magit-diff-visit-file-other-window (kbd "<return>") #'magit-diff-visit-file-other-window)
+  ;;(define-key magit-hunk-section-map (kbd "<return>") #'magit-diff-visit-file-other-window)
+
+  ;; See: https://stackoverflow.com/questions/24993868/how-do-you-list-tracked-files-git-ls-files-in-magit/25227438#25227438
+  ;;(magit-add-section-hook
+  ;; 'magit-status-sections-hook
+  ;; 'magit-insert-tracked-files nil
+  ;; 'append)
+
+
+  )
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Allow hash to be entered                                         ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-insert-hash ()
+  "Allow hash to be entered"
+  (interactive)
+  (when (not(eq major-mode 'org-mode))
+	  (if (region-active-p)
+		    (insert-pair 1 ?# ?#)
+	    (insert "#")
+	    (backward-char))
+	  )
+  )
+
+
+(defun my-setup-indent (n)
+  ;; java/c/c++
+  (setq-local c-basic-offset n)
+  ;; web development
+  (setq-local coffee-tab-width n)              ; coffeescript
+  (setq-local javascript-indent-level n)       ; javascript-mode
+  (setq-local js-indent-level n)               ; js-mode
+  (setq-local js2-basic-offset n)              ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq-local web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq-local web-mode-css-indent-offset n)    ; web-mode, css in html file
+  (setq-local web-mode-code-indent-offset n)   ; web-mode, js code in html file
+  (setq-local css-indent-offset n)             ; css-mode
+  )
+
+(defun my-office-code-style ()
+  (interactive)
+  (message "Office code style!")
+  ;; use tab instead of space
+  (setq-local indent-tabs-mode t)
+  ;; indent 4 spaces width
+  (my-setup-indent 4))
+
+(defun my-personal-code-style ()
+  (interactive)
+  (message "My personal code style!")
+  ;; use space instead of tab
+  (setq indent-tabs-mode nil)
+  ;; indent 2 spaces width
+  (my-setup-indent 2))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Set the default fonts                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-default-font-style ()
+  "Function that sets the font family and size"
+  (interactive)
+  (set-face-attribute 'default nil :family "Hack")
+  (set-face-attribute 'default nil :height 155)
+  )
+(my-default-font-style)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Remove rebasing hook from magit                                  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-magit-remove-rebase-section ()
+  "Function that sets the font family and size"
+  (interactive)
+  (remove-hook 'magit-status-sections-hook 'magit-insert-rebase-sequence)
+  (magit-refresh-all)
+  )
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; deleting space                                                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun delete-horizontal-space-forward () ; adapted from `delete-horizontal-space'
+  "*Delete all spaces and tabs after point."
+  (interactive "*")
+  (delete-region (point) (progn (skip-chars-forward " \t") (point))))
+
+(defun backward-delete-char-hungry (arg &optional killp)
+  "*Delete characters backward in \"hungry\" mode.
+    See the documentation of `backward-delete-char-untabify' and
+    `backward-delete-char-untabify-method' for details."
+  (interactive "*p\nP")
+  (let ((backward-delete-char-untabify-method 'hungry))
+    (backward-delete-char-untabify arg killp)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; pick up translation name spaces in buffer                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-get-translation-ns ()
+  "Update the buffer with react translation code including namespaces"
+  (interactive)
+  (setq p (point))
+  (goto-char (point-min))
+  (setq namespaces '("announcement" "files" "forms" "general" "notifications" "tasks"))
+  (setq list '())
+
+  (dolist (n namespaces)
+    ;;(print n)
+	  (save-excursion
+      (goto-char (point-min))
+      ;; NOT BEING FOUND
+	    (if (search-forward (concat n ":") nil t)
+          (push n list)
+	        )
+	   )
+    )
+  (setq list (nreverse list))
+  ;;(print-elements-of-list list)
+  ;;(print-elements-of-list namespaces)
+
+  ;; Find useTranslation on page
+  (when (>= (length list) 1)
+    (goto-char (point-min))
+    (search-forward "import { useTranslation } from \'react-i18next\'" nil t)
+
+    (goto-char p)
+    (newline)
+    (insert "const \{ t \} = useTranslation\(\[")
+
+    (loop for x in list
+          do (insert "\'") (insert x) (insert "\', "))
+
+    (delete-backward-char 2)
+    (insert "]\)")
+    )
+
+  (when (= (length list) 0)
+    (message "No namespaces found in buffer")
+    )
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; clean up the buffer                                              ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-clean-up-buffer ()
+  "Untabifies, indents and deletes trailing whitespace from buffer or region."
+  (interactive)
+  (save-excursion
+	  (unless (region-active-p)
+	    (mark-whole-buffer))
+	  (my-untabify-buffer (region-beginning) (region-end))
+	  (my-insert-leading-tabs  (region-beginning) (region-end))
+	  (keyboard-quit)
+	  )
+  )
+(global-set-key (kbd "H-s-SPC") 'my-clean-up-buffer)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; untabify buffer                                                  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-untabify-buffer (begin end)
+  "Untabify tabs in the middle of strings"
+  (interactive "r")
+  (save-excursion
+	  (goto-char (point-min))
+	  (while (search-forward-regexp "[^\n\r\t]\t" nil t)
+	    (untabify (1- (point)) (line-end-position))
+	    )
+	  (message "All untabbed!")
+	  )
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; insert leading tabs                                                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun my-insert-leading-tabs (start end)
+  "Call `tabify' with `tabify-regexp' set so that only leading
+spaces are treated."
+  (interactive "r")
+  (setq tabify-regexp-old tabify-regexp)
+  (unwind-protect
+	    (progn
+		    (setq tabify-regexp "^\t* [ \t]+")
+		    (tabify start end))
+	  (setq tabify-regexp tabify-regexp-old)
+    )
+  )
+
+
+;;(defun print-elements-of-list (list)
+;;  "Print each element of LIST on a line of its own."
+;;  (while list
+;;    (print (car list))
+;;    (setq list (cdr list)))
+
+
+(defun my-copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))
+
+
+
+(replace-regexp-in-string '  REP STRING &optional FIXEDCASE LITERAL SUBEXP
+                          START)
+
+
+(defun my-delete-file-and-buffer ()
+  "Kill the current buffer and deletes the file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (when filename
+      (if (vc-backend filename)
+          (vc-delete-file filename)
+        (progn
+          (delete-file filename)
+          (message "Deleted file %s" filename)
+          (kill-buffer))))))

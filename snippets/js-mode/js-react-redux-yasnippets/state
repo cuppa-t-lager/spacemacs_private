@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: state
+# key: state
+# uuid: state
+# group: react-redux
+# --
+this.state.$0

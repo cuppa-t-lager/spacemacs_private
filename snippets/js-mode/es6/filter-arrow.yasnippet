@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: arr.filter(item => {...})
+# key: es6 =>
+# group: es6
+# --
+`(unless (eq (char-before) ?.) ".")`filter(${1:item} => `(if (> (%lines %) 1) (concat "{ " (!%!) " }") %)`$0)`(if (eolp) ";")`

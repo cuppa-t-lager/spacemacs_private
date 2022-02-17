@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Creates empty propTypes declaration
+# key: rdp
+# uuid: rdp
+# group: react-redux
+# --
+$1.defaultProps = {
+ $0
+}`(js-react-redux-yasnippets-semicolon)`

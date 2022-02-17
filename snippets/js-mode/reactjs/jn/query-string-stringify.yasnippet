@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: stringify
+# key: qsst
+# group: react.query-string
+# --
+$1.stringify({ ...${2:Object}, ${3: $$(yas-choose-value '("strict" "encode" "arrayFormat" "" "arrayFormatSeparator" "skipNull"))} )
+$0

@@ -1,0 +1,9 @@
+# name : beforeEach(() => { ... })
+# contributor : Seong Yong-ju <sei40kr@gmail.com>
+# key: jest
+# group: jest
+# --
+
+beforeEach(() => {
+  $0
+});

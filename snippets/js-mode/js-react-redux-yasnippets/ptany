@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Any prop type
+# key: ptany
+# uuid: ptany
+# group: react-redux
+# --
+PropTypes.any,$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: An array of a certain type required
+# key: ptaor
+# uuid: ptaor
+# group: react-redux
+# --
+PropTypes.arrayOf($1).isRequired,$0
